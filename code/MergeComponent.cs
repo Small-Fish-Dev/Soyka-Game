@@ -35,7 +35,13 @@ public sealed class MergeComponent : Component, ICollisionListener
 
 		if ( otherMerger == null ) return;
 
-		Log.Info( "HII" );
+		if ( otherMerger.MergeOrder == MergeOrder )
+		{
+			MergeOrder++;
+			Transform.Scale *= 1.3f;
+
+			otherObject.Destroy();
+		}
 	}
 
 	public void OnCollisionUpdate( Collision other )
