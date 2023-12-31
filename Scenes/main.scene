@@ -156,7 +156,7 @@
           "__enabled": true,
           "Center": "0,0,0",
           "IsTrigger": false,
-          "Radius": 32.90002,
+          "Radius": 33,
           "Static": false,
           "Surface": null
         },
@@ -171,169 +171,27 @@
             "Pitch": true,
             "Yaw": true
           }
-        }
-      ]
-    },
-    {
-      "Id": "1cdf820f-0a44-4a39-b612-116f8ca63855",
-      "Name": "Sphere (3)",
-      "Position": "2000,320,192",
-      "Enabled": true,
-      "Components": [
+        },
         {
-          "__type": "ModelRenderer",
+          "__type": "MergeComponent",
           "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
+          "MergeOrder": 1
         },
         {
           "__type": "SphereCollider",
           "__enabled": true,
           "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
+          "IsTrigger": true,
+          "Radius": 34,
           "Static": false,
           "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
         }
       ]
     },
     {
-      "Id": "fd2a2515-2260-48d4-9531-e14904d9b046",
-      "Name": "Sphere (6)",
-      "Position": "2000,224,128",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
-        }
-      ]
-    },
-    {
-      "Id": "fad5c70f-eca5-442d-be02-2145c8182a51",
-      "Name": "Sphere (9)",
-      "Position": "2000,96,96",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
-        }
-      ]
-    },
-    {
-      "Id": "cabe4a2e-a794-4c94-aa5b-f9a76aad9f12",
-      "Name": "Sphere (12)",
-      "Position": "2000,-64,256",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
-        }
-      ]
-    },
-    {
-      "Id": "5dc6091f-d777-484e-b572-5280c313a1dc",
+      "Id": "d93da923-2ffc-4905-a114-04b5d912c779",
       "Name": "Sphere (1)",
-      "Position": "2000,416,64",
+      "Position": "2000,503.993,128",
       "Enabled": true,
       "Components": [
         {
@@ -351,7 +209,7 @@
           "__enabled": true,
           "Center": "0,0,0",
           "IsTrigger": false,
-          "Radius": 32.90002,
+          "Radius": 33,
           "Static": false,
           "Surface": null
         },
@@ -366,169 +224,27 @@
             "Pitch": true,
             "Yaw": true
           }
-        }
-      ]
-    },
-    {
-      "Id": "8ce96ba3-152d-4d28-9699-33094e2ac9d1",
-      "Name": "Sphere (4)",
-      "Position": "2000,256,224",
-      "Enabled": true,
-      "Components": [
+        },
         {
-          "__type": "ModelRenderer",
+          "__type": "MergeComponent",
           "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
+          "MergeOrder": 1
         },
         {
           "__type": "SphereCollider",
           "__enabled": true,
           "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
+          "IsTrigger": true,
+          "Radius": 34,
           "Static": false,
           "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
         }
       ]
     },
     {
-      "Id": "7f5d5038-418e-40ac-b978-5a54cc28ed20",
-      "Name": "Sphere (7)",
-      "Position": "2000,160,160",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
-        }
-      ]
-    },
-    {
-      "Id": "f7bc6b0b-4bd1-4a13-b6a7-81b7c6b9436d",
-      "Name": "Sphere (10)",
-      "Position": "2000,32,128",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
-        }
-      ]
-    },
-    {
-      "Id": "d5e0365f-b9a1-42d0-9784-4982c8a9eb6c",
-      "Name": "Sphere (13)",
-      "Position": "2000,-128,288",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
-        }
-      ]
-    },
-    {
-      "Id": "ada4175d-9db1-4f33-a1e4-872dd1b29db4",
+      "Id": "c35fb768-860b-4236-9fa1-abefb04ea580",
       "Name": "Sphere (2)",
-      "Position": "2000,352,128",
+      "Position": "2000,503.993,256",
       "Enabled": true,
       "Components": [
         {
@@ -546,7 +262,7 @@
           "__enabled": true,
           "Center": "0,0,0",
           "IsTrigger": false,
-          "Radius": 32.90002,
+          "Radius": 33,
           "Static": false,
           "Surface": null
         },
@@ -561,162 +277,20 @@
             "Pitch": true,
             "Yaw": true
           }
-        }
-      ]
-    },
-    {
-      "Id": "4c0f5588-b4c7-47b4-94af-b468c14d4a74",
-      "Name": "Sphere (5)",
-      "Position": "2000,192,288",
-      "Enabled": true,
-      "Components": [
+        },
         {
-          "__type": "ModelRenderer",
+          "__type": "MergeComponent",
           "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
+          "MergeOrder": 1
         },
         {
           "__type": "SphereCollider",
           "__enabled": true,
           "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
+          "IsTrigger": true,
+          "Radius": 34,
           "Static": false,
           "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
-        }
-      ]
-    },
-    {
-      "Id": "f1fc7859-96e8-4b39-8563-76589745f3cf",
-      "Name": "Sphere (8)",
-      "Position": "2000,96,224",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
-        }
-      ]
-    },
-    {
-      "Id": "c966b004-8b98-411e-ab84-b029cc4343bd",
-      "Name": "Sphere (11)",
-      "Position": "2000,-32,192",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
-        }
-      ]
-    },
-    {
-      "Id": "e0e10efb-6a90-428b-ae36-d535ffbc1311",
-      "Name": "Sphere (14)",
-      "Position": "2000,-192,352",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "__enabled": true,
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Radius": 32.90002,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Rigidbody",
-          "__enabled": true,
-          "AngularDamping": 0,
-          "Gravity": true,
-          "LinearDamping": 0,
-          "Locking": {
-            "X": true,
-            "Pitch": true,
-            "Yaw": true
-          }
         }
       ]
     }
