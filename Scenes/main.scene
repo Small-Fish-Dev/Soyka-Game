@@ -228,7 +228,8 @@
         {
           "__type": "mouse",
           "__enabled": true,
-          "MyStringValue": "Hello World!"
+          "MyStringValue": "Hello World!",
+          "PlayableArea": "aaccf6ee-7b44-4121-bc65-e14a891865b0"
         }
       ]
     }

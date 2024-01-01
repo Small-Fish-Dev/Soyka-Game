@@ -64,7 +64,12 @@ public sealed class PlayableAreaComponent : Component
 	{
 		base.OnUpdate();
 
-		Log.Info( $"Is inside playable? {IsInsidePlayableBounds( GetMousePosition() )}" );
-		Log.Info( $"Is inside placeable? {IsInsidePlaceableBounds( GetMousePosition() )}" );
+		//Log.Info( $"Is inside playable? {IsInsidePlayableBounds( GetMousePosition() )}" );
+		//Log.Info( $"Is inside placeable? {IsInsidePlaceableBounds( GetMousePosition() )}" );
+	}
+
+	public void OnClick()
+	{
+		Log.Info( "Hiii :-))" );
 	}
 }

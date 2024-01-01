@@ -2,13 +2,13 @@
 @using Sandbox.UI;
 @inherits PanelComponent
 
-<root>
+<root onclick=@OnClick>
 	<div class="title">@MyStringValue</div>
 </root>
 
 @code
 {
-
+    [Property] public PlayableAreaComponent PlayableArea { get; set; }
     [Property] public string MyStringValue { get; set; } = "Hello World!";
 
     /// <summary>
@@ -20,5 +20,8 @@
     {
         base.OnUpdate();
 
+
     }
+
+    void OnClick() => PlayableArea?.OnClick();
 }
