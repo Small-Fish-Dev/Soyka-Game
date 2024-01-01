@@ -14,7 +14,7 @@
           "FieldOfView": 60,
           "IsMainCamera": true,
           "Orthographic": true,
-          "OrthographicHeight": 1500,
+          "OrthographicHeight": 2000,
           "Priority": 1,
           "RenderExcludeTags": "",
           "RenderTags": "",

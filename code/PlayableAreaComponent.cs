@@ -8,6 +8,8 @@ public sealed class PlayableAreaComponent : Component
 	[Property]
 	public BBox PlaceableBounds { get; set; }
 
+	SceneModel _preview;
+
 	protected override void DrawGizmos()
 	{
 		base.DrawGizmos();
@@ -58,18 +60,26 @@ public sealed class PlayableAreaComponent : Component
 	{
 		base.OnStart();
 
+		_preview = new SceneModel( Scene.SceneWorld, "models/dev/sphere.vmdl", Transform.World );
+		_preview.ColorTint = Color.White.WithAlpha( 0.3f );
 	}
 
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
 
-		//Log.Info( $"Is inside playable? {IsInsidePlayableBounds( GetMousePosition() )}" );
-		//Log.Info( $"Is inside placeable? {IsInsidePlaceableBounds( GetMousePosition() )}" );
+		if ( _preview != null )
+		{
+			var nearestPosition = PlaceableBounds.ClosestPoint( GetMousePosition() );
+			_preview.Transform = new Transform( nearestPosition.WithZ( PlaceableBounds.Mins.z ) );
+		}
 	}
 
 	public void OnClick()
 	{
-		Log.Info( "Hiii :-))" );
+
+		Log.Info( $"Is inside playable? {IsInsidePlayableBounds( GetMousePosition() )}" );
+		Log.Info( $"Is inside placeable? {IsInsidePlaceableBounds( GetMousePosition() )}" );
+
 	}
 }
