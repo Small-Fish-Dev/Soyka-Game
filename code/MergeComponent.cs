@@ -1,5 +1,4 @@
 using Sandbox;
-using System.Linq;
 using static Sandbox.Component;
 
 public sealed class MergeComponent : Component, ICollisionListener
