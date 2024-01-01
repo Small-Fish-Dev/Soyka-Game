@@ -44,7 +44,7 @@
     {
       "Id": "aaccf6ee-7b44-4121-bc65-e14a891865b0",
       "Name": "Map",
-      "Position": "2000,58.4216,-50.55369",
+      "Position": "2000,0,0",
       "Enabled": true,
       "Components": [
         {

@@ -1,4 +1,5 @@
 using Sandbox;
+using System;
 
 public sealed class PlayableAreaComponent : Component
 {
@@ -65,8 +66,13 @@ public sealed class PlayableAreaComponent : Component
 	/// <returns></returns>
 	public Vector3 GetPlacementPosition()
 	{
-		var nearestPosition = PlaceableBounds.ClosestPoint( GetMousePosition() );
-		return new Vector3( Transform.Position.x, nearestPosition.y, PlaceableBounds.Mins.z );
+		var minY = PlaceableBounds.Mins.y;
+		var maxY = PlaceableBounds.Maxs.y;
+		var clamped = Math.Clamp( GetMousePosition().y, minY, maxY );
+
+		Log.Info( clamped );
+
+		return new Vector3( Transform.Position.x, clamped, PlaceableBounds.Mins.z );
 	}
 
 	protected override void OnStart()
@@ -74,7 +80,7 @@ public sealed class PlayableAreaComponent : Component
 		base.OnStart();
 
 		_preview = new SceneModel( Scene.SceneWorld, "models/dev/sphere.vmdl", Transform.World );
-		_preview.ColorTint = Color.White.WithAlpha( 0.3f );
+		_preview.ColorTint = Color.White.WithAlpha( 0.5f );
 	}
 
 	protected override void OnUpdate()
@@ -89,10 +95,7 @@ public sealed class PlayableAreaComponent : Component
 
 	public void OnClick()
 	{
-
-		if ( IsInsidePlayableBounds( GetMousePosition() ) || IsInsidePlaceableBounds( GetMousePosition() ) )
-			SpawnBall( GetPlacementPosition() );
-
+		SpawnBall( GetPlacementPosition() );
 	}
 
 	public void SpawnBall( Vector3 position )
