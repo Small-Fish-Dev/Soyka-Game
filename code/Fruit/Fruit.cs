@@ -5,16 +5,14 @@ public struct Fruit : IEquatable<Fruit>
 	/// <summary>
 	/// List of all fruits.
 	/// </summary>
-	/// <typeparam name="Fruit"></typeparam>
 	/// <returns></returns>
 	public static List<Fruit> All = new List<Fruit>()
 	{
-		new() { Name = "Strawberry", Size = 5f, Texture = "" },
-		new() { Name = "Blueberry", Size = 7.5f, Texture = "" },
-		new() { Name = "Apple", Size = 15f, Texture = "" },
-		new() { Name = "Orange", Size = 20f, Texture = "" },
-		new() { Name = "Melon", Size = 40f, Texture = "" },
-		new() { Name = "Watermelon", Size = 50f, Texture = "" },
+		new() { Name = "Peajak", Size = 5f, Texture = "materials/peajak.png" },
+		new() { Name = "Blueberryjak", Size = 7.5f, Texture = "materials/blueberryjak.png" },
+		new() { Name = "Orangejak", Size = 20f, Texture = "materials/orangejak.png" },
+		new() { Name = "Lettucejak", Size = 40f, Texture = "materials/lettucejak.png" },
+		new() { Name = "Meatballjak", Size = 50f, Texture = "materials/meatjak.png" },
 	};
 
 	public string Name;

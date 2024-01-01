@@ -105,6 +105,7 @@ public sealed class PlayableAreaComponent : Component
 		
 		ball.BreakFromPrefab();
 		ball.Transform.Position = position;
+		ball.Transform.Rotation = Rotation.From( 90, 180, 0 );
 
 		var component = ball.Components.Get<FruitComponent>();
 		component.Fruit = Fruit.All[0];

@@ -252,6 +252,14 @@
           "PlayableArea": "aaccf6ee-7b44-4121-bc65-e14a891865b0"
         }
       ]
+    },
+    {
+      "Id": "ceede983-9b65-4c6e-a293-12158f9554f6",
+      "Name": "fruit",
+      "Position": "1963,473.2484,-41.97459",
+      "Rotation": "-0.707107,0,0.7071065,0",
+      "Enabled": true,
+      "__Prefab": "prefabs/fruit.prefab"
     }
   ],
   "SceneProperties": {

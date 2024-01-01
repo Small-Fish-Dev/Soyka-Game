@@ -6,12 +6,12 @@ partial class FruitComponent : ICollisionListener
 {
 	public Collider Collider { get; set; }
 	public Rigidbody Rigidbody { get; set; }
-	public TimeSince LastMerged { get; set; }
 
 	protected override void OnStart()
 	{
 		base.OnStart();
 
+		Plane = GameObject.Components.Get<ModelRenderer>();
 		Collider = GameObject.Components.Get<Collider>();
 		Rigidbody = GameObject.Components.Get<Rigidbody>();
 	}
@@ -33,8 +33,9 @@ partial class FruitComponent : ICollisionListener
 
 		if ( Fruit == component.Fruit && !Fruit.IsLast() )
 		{
-			Fruit = Fruit.GetNext();
-			LastMerged = 0;
+			var next = Fruit.GetNext();
+			Fruit = next;
+			
 			obj.Destroy();
 		}
 	}
