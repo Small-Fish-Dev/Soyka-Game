@@ -1,0 +1,64 @@
+{
+  "GameObjects": [
+    {
+      "Id": "a73d0265-9680-4e61-bd23-b9ef65be8b98",
+      "Name": "Screen",
+      "Position": "575.6002,-980.4592,457.1343",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "__enabled": true,
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        },
+        {
+          "__type": "menu",
+          "__enabled": true,
+          "GameScene": "scenes/main.scene",
+          "Text": "Soyka Game!"
+        }
+      ]
+    },
+    {
+      "Id": "94f22553-a9e7-4991-a8a2-8f00bea9fc1e",
+      "Name": "Camera",
+      "Position": "69.82828,-869.1093,504.8721",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "__enabled": true,
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true
+  },
+  "Title": "menu",
+  "Description": "",
+  "__references": []
+}

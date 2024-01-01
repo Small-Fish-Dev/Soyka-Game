@@ -1,0 +1,22 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System;
+@inherits PanelComponent
+
+
+<root>
+    <div class="text">@Text</div>
+    <button @onclick=@StartGame>Start Game</button>
+</root>
+
+
+@code
+{
+    [Property] public SceneFile GameScene { get; set; }
+    [Property] public string Text { get; set; } = "Soyka Game!";
+
+    void StartGame() => GameManager.ActiveScene.Load(GameScene);
+
+    protected override int BuildHash() => HashCode.Combine( Time.Now );
+
+}
