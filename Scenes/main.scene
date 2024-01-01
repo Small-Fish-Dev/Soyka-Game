@@ -46,6 +46,20 @@
       "Name": "Map",
       "Position": "2000,58.4216,-50.55369",
       "Enabled": true,
+      "Components": [
+        {
+          "__type": "PlayableAreaComponent",
+          "__enabled": true,
+          "PlaceableBounds": {
+            "Mins": "-100,-653.7,781.3",
+            "Maxs": "100,523.2,906.2999"
+          },
+          "PlayableBounds": {
+            "Mins": "-100,-653.7002,-459.0001",
+            "Maxs": "100,523.1998,781.2999"
+          }
+        }
+      ],
       "Children": [
         {
           "Id": "5873a20a-f68e-46dd-a61b-d7a4ab28d6c8",
@@ -185,6 +199,27 @@
           "Radius": 34,
           "Static": false,
           "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "be98b638-5fa3-45a3-a918-7b0b5107dcde",
+      "Name": "Screen",
+      "Position": "-702.9551,240.5161,555.7917",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "__enabled": true,
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        },
+        {
+          "__type": "mouse",
+          "__enabled": true,
+          "MyStringValue": "Hello World!"
         }
       ]
     }
