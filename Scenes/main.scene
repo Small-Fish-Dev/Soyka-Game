@@ -52,12 +52,12 @@
           "__enabled": true,
           "Ball": "scenes/ball.prefab",
           "PlaceableBounds": {
-            "Mins": "-100,-653.7,781.3",
-            "Maxs": "100,523.2,906.2999"
+            "Mins": "-50,-550,650",
+            "Maxs": "50,550,750"
           },
           "PlayableBounds": {
-            "Mins": "-100,-653.7002,-459.0001",
-            "Maxs": "100,523.1998,781.2999"
+            "Mins": "-50,-550,-450",
+            "Maxs": "50,550,650"
           }
         },
         {
@@ -68,13 +68,47 @@
           "Scale": "10,5000,5000",
           "Static": false,
           "Surface": null
+        },
+        {
+          "__type": "SkyBox2D",
+          "__enabled": true,
+          "SkyMaterial": "materials/skybox/light_test_sky_sunset_light.vmat",
+          "Tint": "1,1,1,1"
         }
       ],
       "Children": [
         {
           "Id": "5873a20a-f68e-46dd-a61b-d7a4ab28d6c8",
-          "Name": "Cube",
-          "Position": "0,-58.4216,-470.2463",
+          "Name": "Bottom Wall",
+          "Position": "0,0,-500",
+          "Scale": "1,25,1",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": true,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "a69873ff-1342-4336-86bc-5ee14f6d7a89",
+          "Name": "Top Wall",
+          "Position": "0,0,800",
           "Scale": "1,25,1",
           "Enabled": true,
           "Components": [
@@ -101,8 +135,8 @@
         },
         {
           "Id": "12ed83bb-7966-4909-99f1-761437756a71",
-          "Name": "Cube",
-          "Position": "0,549.5784,169.7537",
+          "Name": "Left Wall",
+          "Position": "0,600,150",
           "Rotation": "0.707107,0,0,0.7071065",
           "Scale": "1,25,1",
           "Enabled": true,
@@ -130,8 +164,8 @@
         },
         {
           "Id": "61fcea58-0b32-4909-a103-201a610bcee3",
-          "Name": "Cube",
-          "Position": "0,-666.4216,169.7537",
+          "Name": "Right Wall",
+          "Position": "0,-600,150",
           "Rotation": "0.707107,0,0,0.7071065",
           "Scale": "1,25,1",
           "Enabled": true,
@@ -154,6 +188,44 @@
               "Scale": "50,50,50",
               "Static": false,
               "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "ae41aa94-8298-41a3-8fd2-ee8825cc1d8e",
+          "Name": "Background Green",
+          "Position": "25,0,85.69998",
+          "Scale": "0.1,23,22.5",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "0.36139,1,0.47634,1"
+            }
+          ]
+        },
+        {
+          "Id": "7a9eaa9f-5a3f-4759-bfac-f5b657e83090",
+          "Name": "Background Green",
+          "Position": "25.7,0,717.4744",
+          "Scale": "0.1,23,3",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,0.36139,0.36139,1"
             }
           ]
         }
