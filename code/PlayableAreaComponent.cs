@@ -3,6 +3,9 @@ using Sandbox;
 public sealed class PlayableAreaComponent : Component
 {
 	[Property]
+	public PrefabFile Ball { get; set; }
+
+	[Property]
 	public BBox PlayableBounds { get; set; }
 
 	[Property]
@@ -56,6 +59,16 @@ public sealed class PlayableAreaComponent : Component
 		return screenPosition.HitPosition;
 	}
 
+	/// <summary>
+	/// Find the ideal placement position
+	/// </summary>
+	/// <returns></returns>
+	public Vector3 GetPlacementPosition()
+	{
+		var nearestPosition = PlaceableBounds.ClosestPoint( GetMousePosition() );
+		return new Vector3( Transform.Position.x, nearestPosition.y, PlaceableBounds.Mins.z );
+	}
+
 	protected override void OnStart()
 	{
 		base.OnStart();
@@ -70,16 +83,25 @@ public sealed class PlayableAreaComponent : Component
 
 		if ( _preview != null )
 		{
-			var nearestPosition = PlaceableBounds.ClosestPoint( GetMousePosition() );
-			_preview.Transform = new Transform( nearestPosition.WithZ( PlaceableBounds.Mins.z ) );
+			_preview.Transform = new Transform( GetPlacementPosition() );
 		}
 	}
 
 	public void OnClick()
 	{
 
-		Log.Info( $"Is inside playable? {IsInsidePlayableBounds( GetMousePosition() )}" );
-		Log.Info( $"Is inside placeable? {IsInsidePlaceableBounds( GetMousePosition() )}" );
+		if ( IsInsidePlayableBounds( GetMousePosition() ) || IsInsidePlaceableBounds( GetMousePosition() ) )
+			SpawnBall( GetPlacementPosition() );
 
+	}
+
+	public void SpawnBall( Vector3 position )
+	{
+		var ball = SceneUtility.Instantiate( SceneUtility.GetPrefabScene( Ball ) );
+
+		if ( ball != null )
+		{
+			ball.Transform.Position = position;
+		}
 	}
 }
