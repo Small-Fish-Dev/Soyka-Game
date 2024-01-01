@@ -50,7 +50,7 @@
         {
           "__type": "PlayableAreaComponent",
           "__enabled": true,
-          "Ball": "scenes/ball.prefab",
+          "Ball": "prefabs/fruit.prefab",
           "PlaceableBounds": {
             "Mins": "-50,-550,650",
             "Maxs": "50,550,750"
@@ -230,13 +230,6 @@
           ]
         }
       ]
-    },
-    {
-      "Id": "ac27757d-1f20-439a-861c-452464f51ed7",
-      "Name": "Sphere",
-      "Position": "2000,503.993,37.03543",
-      "Enabled": true,
-      "__Prefab": "scenes/ball.prefab"
     },
     {
       "Id": "be98b638-5fa3-45a3-a918-7b0b5107dcde",

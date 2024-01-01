@@ -1,0 +1,50 @@
+{
+  "RootObject": {
+    "Id": "ac27757d-1f20-439a-861c-452464f51ed7",
+    "Name": "fruit",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "FruitComponent",
+        "__enabled": true,
+        "Name": "Strawberry",
+        "Size": 5
+      },
+      {
+        "__type": "ModelRenderer",
+        "__enabled": true,
+        "BodyGroups": 18446744073709551615,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
+        "Model": "models/dev/sphere.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "Rigidbody",
+        "__enabled": true,
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {
+          "X": true,
+          "Pitch": true,
+          "Yaw": true
+        }
+      },
+      {
+        "__type": "SphereCollider",
+        "__enabled": true,
+        "Center": "0,0,0",
+        "IsTrigger": false,
+        "Radius": 34,
+        "Static": false,
+        "Surface": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

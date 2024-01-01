@@ -1,5 +1,4 @@
-using Sandbox;
-using System;
+namespace Soyka;
 
 public sealed class PlayableAreaComponent : Component
 {
@@ -101,10 +100,13 @@ public sealed class PlayableAreaComponent : Component
 	public void SpawnBall( Vector3 position )
 	{
 		var ball = SceneUtility.Instantiate( SceneUtility.GetPrefabScene( Ball ) );
+		if ( ball == null )
+			return;
+		
+		ball.BreakFromPrefab();
+		ball.Transform.Position = position;
 
-		if ( ball != null )
-		{
-			ball.Transform.Position = position;
-		}
+		var component = ball.Components.Get<FruitComponent>();
+		component.Fruit = Fruit.All[0];
 	}
 }
