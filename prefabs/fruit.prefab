@@ -1,14 +1,13 @@
 {
   "RootObject": {
-    "Id": "ac27757d-1f20-439a-861c-452464f51ed7",
+    "Id": "a0f97f0c-0db7-4599-a387-422b3e12b6e1",
     "Name": "fruit",
-    "Rotation": "-0.5000007,0.4999997,0.5000003,0.4999993",
     "Enabled": true,
     "Components": [
       {
         "__type": "FruitComponent",
         "__enabled": true,
-        "Name": "Strawberry",
+        "Name": "Peajak",
         "Size": 5
       },
       {
@@ -29,8 +28,8 @@
         "LinearDamping": 0,
         "Locking": {
           "X": true,
-          "Yaw": true,
-          "Roll": true
+          "Pitch": true,
+          "Yaw": true
         }
       },
       {
