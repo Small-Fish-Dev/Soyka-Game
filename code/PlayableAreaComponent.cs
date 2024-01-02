@@ -69,8 +69,6 @@ public sealed class PlayableAreaComponent : Component
 		var maxY = PlaceableBounds.Maxs.y;
 		var clamped = Math.Clamp( GetMousePosition().y, minY, maxY );
 
-		Log.Info( clamped );
-
 		return new Vector3( Transform.Position.x, clamped, PlaceableBounds.Mins.z );
 	}
 
@@ -102,12 +100,12 @@ public sealed class PlayableAreaComponent : Component
 		var ball = SceneUtility.Instantiate( SceneUtility.GetPrefabScene( Ball ) );
 		if ( ball == null )
 			return;
-		
+
 		ball.BreakFromPrefab();
 		ball.Transform.Position = position;
 		ball.Transform.Rotation = Rotation.From( 90, 180, 0 );
 
 		var component = ball.Components.Get<FruitComponent>();
-		component.Fruit = Fruit.All[0];
+		//component.Fruit = Fruit.All[0];
 	}
 }

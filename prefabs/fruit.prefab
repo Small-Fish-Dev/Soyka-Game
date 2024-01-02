@@ -7,8 +7,13 @@
       {
         "__type": "FruitComponent",
         "__enabled": true,
-        "Name": "Peajak",
-        "Size": 5
+        "Tiers": [
+          "materials/peajak.vtex",
+          "materials/blueberryjak.vtex",
+          "materials/meatjak.vtex",
+          "materials/orangejak.vtex",
+          "materials/lettucejak.vtex"
+        ]
       },
       {
         "__type": "ModelRenderer",
