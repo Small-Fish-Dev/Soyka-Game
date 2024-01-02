@@ -9,7 +9,7 @@
         {
           "__type": "CameraComponent",
           "__enabled": true,
-          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "BackgroundColor": "1,1,1,0",
           "ClearFlags": "All",
           "FieldOfView": 60,
           "IsMainCamera": true,
@@ -212,7 +212,7 @@
         },
         {
           "Id": "7a9eaa9f-5a3f-4759-bfac-f5b657e83090",
-          "Name": "Background Green",
+          "Name": "Background Red",
           "Position": "25.7,0,717.4744",
           "Scale": "0.1,23,3",
           "Enabled": true,
@@ -252,14 +252,6 @@
           "PlayableArea": "aaccf6ee-7b44-4121-bc65-e14a891865b0"
         }
       ]
-    },
-    {
-      "Id": "ceede983-9b65-4c6e-a293-12158f9554f6",
-      "Name": "fruit",
-      "Position": "1963,473.2484,-41.97459",
-      "Rotation": "-0.707107,0,0.7071065,0",
-      "Enabled": true,
-      "__Prefab": "prefabs/fruit.prefab"
     }
   ],
   "SceneProperties": {

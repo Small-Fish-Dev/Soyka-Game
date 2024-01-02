@@ -12,7 +12,8 @@ public partial class FruitComponent : Component, ICollisionListener
 
 	public int Tier { get; private set; } = 1;
 	public float Mass => Tier * Tier;
-	public float Scale => MathF.Sqrt( Mass / (float)Math.PI );
+	private float _initialScale = 1f;
+	public float Scale => _initialScale * MathF.Sqrt( Mass / (float)Math.PI );
 	public bool IsLastTier => Tier == Tiers.Count();
 
 	protected override void OnStart()
@@ -22,6 +23,8 @@ public partial class FruitComponent : Component, ICollisionListener
 		Plane = GameObject.Components.Get<ModelRenderer>();
 		Collider = GameObject.Components.Get<Collider>();
 		Rigidbody = GameObject.Components.Get<Rigidbody>();
+
+		_initialScale = Transform.Scale.x;
 
 		UpdateTexture();
 		UpdateScale();
