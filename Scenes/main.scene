@@ -29,14 +29,13 @@
       "Id": "7e187d0f-1e5d-4b99-91a9-1b3b9707ff08",
       "Name": "Directional Light",
       "Position": "0,0,200",
-      "Rotation": "-0.2459843,0.5938584,0.2931525,0.7077326",
       "Enabled": true,
       "Components": [
         {
           "__type": "DirectionalLight",
           "__enabled": true,
           "LightColor": "0.91373,0.98039,1,1",
-          "Shadows": true,
+          "Shadows": false,
           "SkyColor": "0.05882,0.07451,0.08235,1"
         }
       ]
