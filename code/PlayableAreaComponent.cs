@@ -3,8 +3,10 @@ namespace Soyka;
 public sealed class PlayableAreaComponent : Component
 {
 	public static float Points { get; set; } = 0;
+	public static float HighScore { get; set; } = 0;
 	public static GameObject CurrentFruit { get; set; }
 	public static GameObject NextFruit { get; set; }
+	public static Sandbox.Services.Leaderboards.Board Leaderboard;
 
 	[Property]
 	public SceneFile MenuScene { get; set; }
@@ -86,6 +88,8 @@ public sealed class PlayableAreaComponent : Component
 		CurrentFruit = SpawnBall( GetPlacementPosition() );
 		NextFruit = SpawnBall( Camera.Main.Position - Camera.Main.Rotation.Forward * 1000f ); // Hide next fruit behind camera haha :)
 		Points = 0f; // Points persist between playsessions???
+
+		LoadLeaderboards();
 	}
 
 	protected override void OnUpdate()
@@ -105,7 +109,10 @@ public sealed class PlayableAreaComponent : Component
 			OverflowTimer = 0;
 
 		if ( OverflowTimer >= MaxOverflowTime )
+		{
+			GameOver();
 			GameManager.ActiveScene.Load( MenuScene );
+		}
 	}
 
 	protected override void OnDestroy()
@@ -155,5 +162,31 @@ public sealed class PlayableAreaComponent : Component
 
 		if ( body != null )
 			body.Enabled = !disabled;
+	}
+
+	public static void GameOver()
+	{
+		Sandbox.Services.Stats.SetValue( "highscore", Points );
+		Log.Info( "hello" );
+	}
+
+	public static async void LoadLeaderboards()
+	{
+		Leaderboard = Sandbox.Services.Leaderboards.Get( "highscore" ); // Target the leaderboard
+
+		Leaderboard.TargetSteamId = (long)Connection.Local.SteamId; // Target our steamid
+		Leaderboard.MaxEntries = 1; // Max 1 entry (ours)
+
+		await Leaderboard.Refresh(); // Refresh with new settings
+
+		var firstEntry = Leaderboard.Entries.First(); // Get the only entry
+
+		if ( firstEntry.Me ) // If the only entry is me
+			HighScore = (float)firstEntry.Value; // Set the highscore
+
+		Leaderboard.TargetSteamId = 0L; // Set the target to 0L (Default option)
+		Leaderboard.MaxEntries = 10; // Set the entries to 10
+
+		await Leaderboard.Refresh(); // Refresh with new settings
 	}
 }
