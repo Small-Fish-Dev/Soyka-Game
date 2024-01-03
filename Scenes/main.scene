@@ -14,7 +14,7 @@
           "FieldOfView": 60,
           "IsMainCamera": true,
           "Orthographic": true,
-          "OrthographicHeight": 2000,
+          "OrthographicHeight": 1350,
           "Priority": 1,
           "RenderExcludeTags": "",
           "RenderTags": "",
@@ -50,6 +50,7 @@
           "__type": "PlayableAreaComponent",
           "__enabled": true,
           "Ball": "prefabs/fruit.prefab",
+          "ClickRate": 0.3,
           "MaxOverflowTime": 5,
           "MenuScene": "scenes/menu.scene",
           "PlayableBounds": {
@@ -207,8 +208,8 @@
         {
           "__type": "mouse",
           "__enabled": true,
-          "MyStringValue": "Hello World!",
-          "PlayableArea": "aaccf6ee-7b44-4121-bc65-e14a891865b0"
+          "PlayableArea": "aaccf6ee-7b44-4121-bc65-e14a891865b0",
+          "Points": "Points: 250"
         }
       ]
     }

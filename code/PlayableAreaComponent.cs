@@ -6,16 +6,27 @@ public sealed class PlayableAreaComponent : Component
 
 	[Property]
 	public SceneFile MenuScene { get; set; }
+
 	[Property]
 	public PrefabFile Ball { get; set; }
 
 	[Property]
 	public BBox PlayableBounds { get; set; }
 
+	/// <summary>
+	/// After how much time a fruit being over the line will make you lose the game
+	/// </summary>
 	[Property]
 	public float MaxOverflowTime { get; set; } = 5f;
 
+	/// <summary>
+	/// How much time before you can click again
+	/// </summary>
+	[Property]
+	public float ClickRate { get; set; } = 0.3f;
+
 	public TimeSince OverflowTimer { get; set; } = 0f;
+	public TimeSince LastMouseClick { get; set; } = 0f;
 	SceneModel _preview;
 
 	protected override void DrawGizmos()
@@ -104,7 +115,12 @@ public sealed class PlayableAreaComponent : Component
 
 	public void OnClick()
 	{
-		SpawnBall( GetPlacementPosition() );
+		if ( LastMouseClick >= ClickRate )
+		{
+			SpawnBall( GetPlacementPosition() );
+
+			LastMouseClick = 0f;
+		}
 	}
 
 	public void SpawnBall( Vector3 position )
