@@ -8,9 +8,6 @@ public sealed class PlayableAreaComponent : Component
 	[Property]
 	public BBox PlayableBounds { get; set; }
 
-	[Property]
-	public BBox PlaceableBounds { get; set; }
-
 	SceneModel _preview;
 
 	protected override void DrawGizmos()
@@ -19,8 +16,6 @@ public sealed class PlayableAreaComponent : Component
 
 		var draw = Gizmo.Draw;
 		draw.LineBBox( PlayableBounds );
-		draw.Color = Color.Red;
-		draw.LineBBox( PlaceableBounds );
 	}
 
 	/// <summary>
@@ -37,14 +32,6 @@ public sealed class PlayableAreaComponent : Component
 	/// <param name="local"></param>
 	/// <returns></returns>
 	public bool IsInsidePlayableBounds( Vector3 point, bool local = false ) => PlayableBounds.Contains( local ? point : WorldToLocal( point ) );
-
-	/// <summary>
-	/// Check if the point is inside of the defined placeable bounds
-	/// </summary>
-	/// <param name="point"></param>
-	/// <param name="local"></param>
-	/// <returns></returns>
-	public bool IsInsidePlaceableBounds( Vector3 point, bool local = false ) => PlaceableBounds.Contains( local ? point : WorldToLocal( point ) );
 
 	/// <summary>
 	/// Gets the mouse position of the main camera
@@ -65,11 +52,11 @@ public sealed class PlayableAreaComponent : Component
 	/// <returns></returns>
 	public Vector3 GetPlacementPosition()
 	{
-		var minY = PlaceableBounds.Mins.y;
-		var maxY = PlaceableBounds.Maxs.y;
+		var minY = PlayableBounds.Mins.y;
+		var maxY = PlayableBounds.Maxs.y;
 		var clamped = Math.Clamp( GetMousePosition().y, minY, maxY );
 
-		return new Vector3( Transform.Position.x, clamped, PlaceableBounds.Mins.z );
+		return new Vector3( Transform.Position.x, clamped, PlayableBounds.Maxs.z );
 	}
 
 	protected override void OnStart()
