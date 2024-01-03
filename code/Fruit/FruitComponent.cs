@@ -31,9 +31,9 @@ public partial class FruitComponent : Component, ICollisionListener
 		var upgradeTier = Game.Random.Int( 100 );
 
 		if ( upgradeTier <= 40f ) // 40% Chance it's a tier 2 or higher
-			IncreaseTier();
+			IncreaseTier( false );
 		if ( upgradeTier <= 15f ) // 15% Chance it's a tier 3
-			IncreaseTier();
+			IncreaseTier( false );
 	}
 
 	protected override void OnUpdate()
@@ -75,13 +75,14 @@ public partial class FruitComponent : Component, ICollisionListener
 	public void OnCollisionUpdate( Collision other ) { }
 	public void OnCollisionStop( CollisionStop other ) { }
 
-	public void IncreaseTier()
+	public void IncreaseTier( bool awardPoints = true )
 	{
 		if ( IsLastTier ) return;
 
 		Tier++;
 
-		PlayableAreaComponent.Points += Mass;
+		if ( awardPoints )
+			PlayableAreaComponent.Points += Mass;
 
 		UpdateTexture();
 	}

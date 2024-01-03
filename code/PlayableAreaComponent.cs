@@ -3,6 +3,8 @@ namespace Soyka;
 public sealed class PlayableAreaComponent : Component
 {
 	public static float Points { get; set; } = 0;
+	public static GameObject CurrentFruit { get; set; }
+	public static GameObject NextFruit { get; set; }
 
 	[Property]
 	public SceneFile MenuScene { get; set; }
@@ -27,9 +29,6 @@ public sealed class PlayableAreaComponent : Component
 
 	public TimeSince OverflowTimer { get; set; } = 0f;
 	public TimeSince LastMouseClick { get; set; } = 0f;
-
-	public GameObject CurrentFruit { get; set; }
-	public GameObject NextFruit { get; set; }
 
 	protected override void DrawGizmos()
 	{
