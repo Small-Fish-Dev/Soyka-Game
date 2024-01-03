@@ -3,11 +3,17 @@ namespace Soyka;
 public sealed class PlayableAreaComponent : Component
 {
 	[Property]
+	public SceneFile MenuScene { get; set; }
+	[Property]
 	public PrefabFile Ball { get; set; }
 
 	[Property]
 	public BBox PlayableBounds { get; set; }
 
+	[Property]
+	public float MaxOverflowTime { get; set; } = 5f;
+
+	public TimeSince OverflowTimer { get; set; } = 0f;
 	SceneModel _preview;
 
 	protected override void DrawGizmos()
@@ -72,9 +78,7 @@ public sealed class PlayableAreaComponent : Component
 		base.OnUpdate();
 
 		if ( _preview != null )
-		{
 			_preview.Transform = new Transform( GetPlacementPosition() );
-		}
 
 		var topLeft = PlayableBounds.Maxs.WithX( Transform.Position.x ).WithY( PlayableBounds.Mins.y );
 		var topRight = PlayableBounds.Maxs.WithX( Transform.Position.x );
@@ -82,7 +86,18 @@ public sealed class PlayableAreaComponent : Component
 			.WithTag( "Fruit" )
 			.Run();
 
-		Log.Info( overflowCheck.Hit );
+		if ( !overflowCheck.Hit )
+			OverflowTimer = 0;
+
+		if ( OverflowTimer >= MaxOverflowTime )
+			GameManager.ActiveScene.Load( MenuScene );
+	}
+
+	protected override void OnDestroy()
+	{
+		base.OnDestroy();
+
+		_preview.Delete();
 	}
 
 	public void OnClick()

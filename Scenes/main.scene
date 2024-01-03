@@ -50,6 +50,8 @@
           "__type": "PlayableAreaComponent",
           "__enabled": true,
           "Ball": "prefabs/fruit.prefab",
+          "MaxOverflowTime": 5,
+          "MenuScene": "scenes/menu.scene",
           "PlayableBounds": {
             "Mins": "-50,-500,-500",
             "Maxs": "50,500,600"
