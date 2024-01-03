@@ -12,8 +12,7 @@ public partial class FruitComponent : Component, ICollisionListener
 
 	public int Tier { get; private set; } = 1;
 	public float Mass => Tier * Tier;
-	private float _initialScale = 1f;
-	public float Scale => _initialScale * MathF.Sqrt( Mass / (float)Math.PI );
+	public float Scale => MathF.Sqrt( Mass / (float)Math.PI );
 	public bool IsLastTier => Tier == Tiers.Count();
 
 	protected override void OnStart()
@@ -24,33 +23,42 @@ public partial class FruitComponent : Component, ICollisionListener
 		Collider = GameObject.Components.Get<Collider>();
 		Rigidbody = GameObject.Components.Get<Rigidbody>();
 
-		_initialScale = Transform.Scale.x;
-
 		UpdateTexture();
-		UpdateScale();
 	}
 
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
+
+		GameObject.Transform.Scale = Vector3.Lerp( GameObject.Transform.Scale, Scale, Time.Delta * 20f );
 	}
 
 	public void OnCollisionStart( Collision other )
 	{
 		Tags.Set( "Fruit", true ); // Only set the tag used to check overflow after it stopped being in mid air
 
-		var obj = other.Other.Collider.GameObject;
-		var component = obj
-			?.Components
-			?.Get<FruitComponent>();
+		var obj = other.Other.Collider?.GameObject ?? null;
 
-		if ( component == null )
-			return;
+		if ( obj == null ) return;
+
+		var component = obj?.Components?.Get<FruitComponent>() ?? null;
+
+		if ( component == null ) return;
 
 		if ( component.Tier == Tier && !IsLastTier )
 		{
-			IncreaseTier();
-			obj.Destroy();
+			var isHighestFruit = obj.Transform.Position.z > Transform.Position.z; // Delete the highest one and upgrade the lowest one
+
+			if ( !isHighestFruit )
+			{
+				component.IncreaseTier();
+				GameObject.DestroyImmediate();
+			}
+			else
+			{
+				IncreaseTier();
+				obj.DestroyImmediate();
+			}
 		}
 	}
 
@@ -64,7 +72,6 @@ public partial class FruitComponent : Component, ICollisionListener
 		Tier++;
 
 		UpdateTexture();
-		UpdateScale();
 	}
 
 	public void UpdateTexture()
@@ -72,10 +79,5 @@ public partial class FruitComponent : Component, ICollisionListener
 		var texture = Tiers[Tier - 1];
 		Plane.SceneObject.Batchable = false;
 		Plane.SceneObject.Attributes.Set( "FruitTexture", texture );
-	}
-
-	public void UpdateScale()
-	{
-		GameObject.Transform.Scale = Scale;
 	}
 }

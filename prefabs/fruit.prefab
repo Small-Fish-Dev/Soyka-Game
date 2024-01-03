@@ -2,6 +2,7 @@
   "RootObject": {
     "Id": "e05da5c8-f578-4b69-8aca-c387bfd3d507",
     "Name": "fruit",
+    "Scale": "0.1,0.1,0.1",
     "Enabled": true,
     "Components": [
       {
