@@ -58,7 +58,7 @@
         {
           "__type": "BoxCollider",
           "__enabled": true,
-          "Center": "0,0,0",
+          "Center": "500,0,0",
           "IsTrigger": false,
           "Scale": "10,5000,5000",
           "Static": false,

@@ -75,6 +75,14 @@ public sealed class PlayableAreaComponent : Component
 		{
 			_preview.Transform = new Transform( GetPlacementPosition() );
 		}
+
+		var topLeft = PlayableBounds.Maxs.WithX( Transform.Position.x ).WithY( PlayableBounds.Mins.y );
+		var topRight = PlayableBounds.Maxs.WithX( Transform.Position.x );
+		var overflowCheck = Scene.Trace.Ray( topLeft, topRight )
+			.WithTag( "Fruit" )
+			.Run();
+
+		Log.Info( overflowCheck.Hit );
 	}
 
 	public void OnClick()

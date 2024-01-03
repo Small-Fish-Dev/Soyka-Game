@@ -37,6 +37,8 @@ public partial class FruitComponent : Component, ICollisionListener
 
 	public void OnCollisionStart( Collision other )
 	{
+		Tags.Set( "Fruit", true ); // Only set the tag used to check overflow after it stopped being in mid air
+
 		var obj = other.Other.Collider.GameObject;
 		var component = obj
 			?.Components
