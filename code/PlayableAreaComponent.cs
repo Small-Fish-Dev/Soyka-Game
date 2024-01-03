@@ -27,7 +27,9 @@ public sealed class PlayableAreaComponent : Component
 
 	public TimeSince OverflowTimer { get; set; } = 0f;
 	public TimeSince LastMouseClick { get; set; } = 0f;
-	SceneModel _preview;
+
+	public GameObject CurrentFruit { get; set; }
+	public GameObject NextFruit { get; set; }
 
 	protected override void DrawGizmos()
 	{
@@ -82,16 +84,18 @@ public sealed class PlayableAreaComponent : Component
 	{
 		base.OnStart();
 
-		_preview = new SceneModel( Scene.SceneWorld, "models/dev/sphere.vmdl", Transform.World );
-		_preview.ColorTint = Color.White.WithAlpha( 0.5f );
+		CurrentFruit = SpawnBall( GetPlacementPosition() );
+		NextFruit = SpawnBall( Camera.Main.Position - Camera.Main.Rotation.Forward * 1000f ); // Hide next fruit behind camera haha :)
+
+		//CurrentFruit.ColorTint = Color.White.WithAlpha( 0.5f );
 	}
 
 	protected override void OnUpdate()
 	{
 		base.OnUpdate();
 
-		if ( _preview != null )
-			_preview.Transform = new Transform( GetPlacementPosition() );
+		if ( CurrentFruit != null )
+			CurrentFruit.Transform.Position = GetPlacementPosition();
 
 		var topLeft = PlayableBounds.Maxs.WithX( Transform.Position.x ).WithY( PlayableBounds.Mins.y );
 		var topRight = PlayableBounds.Maxs.WithX( Transform.Position.x );
@@ -109,31 +113,49 @@ public sealed class PlayableAreaComponent : Component
 	protected override void OnDestroy()
 	{
 		base.OnDestroy();
-
-		_preview.Delete();
 	}
 
 	public void OnClick()
 	{
 		if ( LastMouseClick >= ClickRate )
 		{
-			SpawnBall( GetPlacementPosition() );
+			SetDisabled( CurrentFruit, false );
+
+			CurrentFruit = NextFruit;
+			CurrentFruit.Transform.Position = GetPlacementPosition();
+
+			NextFruit = SpawnBall( Camera.Main.Position - Camera.Main.Rotation.Forward * 1000f ); // Hide next fruit behind camera haha :)
 
 			LastMouseClick = 0f;
 		}
 	}
 
-	public void SpawnBall( Vector3 position )
+	public GameObject SpawnBall( Vector3 position, bool disabled = true )
 	{
 		var ball = SceneUtility.Instantiate( SceneUtility.GetPrefabScene( Ball ) );
-		if ( ball == null )
-			return;
+
+		if ( ball == null ) return null;
 
 		ball.BreakFromPrefab();
 		ball.Transform.Position = position;
 		ball.Transform.Rotation = Rotation.From( 90, 180, 0 );
 
-		var component = ball.Components.Get<FruitComponent>();
-		//component.Fruit = Fruit.All[0];
+		if ( disabled )
+			SetDisabled( ball );
+
+		return ball;
+	}
+
+	void SetDisabled( GameObject ball, bool disabled = true )
+	{
+		var collider = ball.Components.Get<Collider>( includeDisabled: true );
+
+		if ( collider != null )
+			collider.Enabled = !disabled;
+
+		var body = ball.Components.Get<Rigidbody>( includeDisabled: true );
+
+		if ( body != null )
+			body.Enabled = !disabled;
 	}
 }

@@ -10,6 +10,8 @@ public partial class FruitComponent : Component, ICollisionListener
 	public Collider Collider { get; set; }
 	public Rigidbody Rigidbody { get; set; }
 
+	public Texture CurrentTexture { get; set; }
+
 	public int Tier { get; private set; } = 1;
 	public float Mass => Tier * Tier;
 	public float Scale => MathF.Sqrt( Mass / (float)Math.PI );
@@ -89,5 +91,7 @@ public partial class FruitComponent : Component, ICollisionListener
 		var texture = Tiers[Tier - 1];
 		Plane.SceneObject.Batchable = false;
 		Plane.SceneObject.Attributes.Set( "FruitTexture", texture );
+
+		CurrentTexture = texture;
 	}
 }
