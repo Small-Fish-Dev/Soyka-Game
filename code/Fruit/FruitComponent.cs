@@ -71,6 +71,8 @@ public partial class FruitComponent : Component, ICollisionListener
 
 		Tier++;
 
+		PlayableAreaComponent.Points += Mass;
+
 		UpdateTexture();
 	}
 

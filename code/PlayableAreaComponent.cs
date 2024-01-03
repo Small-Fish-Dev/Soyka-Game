@@ -2,6 +2,8 @@ namespace Soyka;
 
 public sealed class PlayableAreaComponent : Component
 {
+	public static float Points { get; set; } = 0;
+
 	[Property]
 	public SceneFile MenuScene { get; set; }
 	[Property]

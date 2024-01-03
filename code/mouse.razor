@@ -6,18 +6,18 @@
 @inherits PanelComponent
 
 <root onclick=@OnClick>
-	<div class="title">@MyStringValue</div>
+	<div class="title">@Points</div>
 </root>
 
 @code
 {
     [Property] public PlayableAreaComponent PlayableArea { get; set; }
-    [Property] public string MyStringValue { get; set; } = "Hello World!";
+    [Property] public string Points => $"Points: {PlayableAreaComponent.Points}";
 
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( MyStringValue );
+    protected override int BuildHash() => System.HashCode.Combine( Points );
 
     protected override void OnUpdate()
     {
