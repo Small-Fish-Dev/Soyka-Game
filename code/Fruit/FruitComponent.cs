@@ -24,6 +24,14 @@ public partial class FruitComponent : Component, ICollisionListener
 		Rigidbody = GameObject.Components.Get<Rigidbody>();
 
 		UpdateTexture();
+
+		// Randomy increase tier of the first drop
+		var upgradeTier = Game.Random.Int( 100 );
+
+		if ( upgradeTier <= 40f ) // 40% Chance it's a tier 2 or higher
+			IncreaseTier();
+		if ( upgradeTier <= 15f ) // 15% Chance it's a tier 3
+			IncreaseTier();
 	}
 
 	protected override void OnUpdate()
