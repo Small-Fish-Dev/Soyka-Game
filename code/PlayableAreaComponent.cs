@@ -85,8 +85,7 @@ public sealed class PlayableAreaComponent : Component
 
 		CurrentFruit = SpawnBall( GetPlacementPosition() );
 		NextFruit = SpawnBall( Camera.Main.Position - Camera.Main.Rotation.Forward * 1000f ); // Hide next fruit behind camera haha :)
-
-		//CurrentFruit.ColorTint = Color.White.WithAlpha( 0.5f );
+		Points = 0f; // Points persist between playsessions???
 	}
 
 	protected override void OnUpdate()
